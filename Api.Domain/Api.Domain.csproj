@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Microsoft.AspNetCore" />
+    <None Remove="Interfaces\" />
+    <None Remove="Interfaces\Services\" />
+    <None Remove="Dtos\" />
+    <None Remove="Dtos\User\" />
+    <None Remove="Dtos\Event\" />
+    <None Remove="Dtos\Lot\" />
+    <None Remove="Dtos\Speaker\" />
+    <None Remove="Dtos\SocialMedia\" />
+    <None Remove="Dtos\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Dtos\User\" />
+    <Folder Include="Dtos\Event\" />
+    <Folder Include="Dtos\Lot\" />
+    <Folder Include="Dtos\Speaker\" />
+    <Folder Include="Dtos\SocialMedia\" />
+    <Folder Include="Dtos\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+  </ItemGroup>
+</Project>
