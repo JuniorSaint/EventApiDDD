@@ -21,7 +21,7 @@ namespace Api.Domain.Dtos.Event
 
         public string ImagePath { get; set; }
 
-        public string Telefone { get; set; }
+        public string Phone { get; set; }
 
         public string Email { get; set; }
 

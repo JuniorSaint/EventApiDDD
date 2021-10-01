@@ -14,10 +14,10 @@ namespace Api.Domain.Dtos.SocialMedia
 
         public string URL { get; set; }
 
-        public int? EventId { get; set; }
+        public Guid? EventId { get; set; }
         public EventDto Event { get; set; }
 
-        public int? SpeakerId { get; set; }
+        public Guid? SpeakerId { get; set; }
         public SpeakerDto Speaker { get; set; }
     }
 }

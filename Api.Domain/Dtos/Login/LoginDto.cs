@@ -5,12 +5,14 @@ namespace Api.Domain.Dtos.Login
 {
     public class LoginDto
     {
-        [Required(ErrorMessage = "Email é um campo obrigatório para Login")]
-        [EmailAddress(ErrorMessage = "E-mail em formato inválido.")]
+        [Display(Name = "e-mail"),
+         Required(ErrorMessage = "O campo {0} é obrigatório para Login"),
+         EmailAddress(ErrorMessage = "campo {0} em formato inválido.")]
         [StringLength(100, ErrorMessage = "Email deve ter no máximo {1} caracteres.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Senha é um campo obrigatório para Login")]
+        [Display(Name = "Senha"),
+         Required(ErrorMessage = "O campo {0} é obrigatório para Login")]
         public string Password { get; set; }
     }
 }

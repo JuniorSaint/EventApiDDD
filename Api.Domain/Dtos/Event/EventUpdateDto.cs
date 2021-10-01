@@ -11,11 +11,12 @@ namespace Api.Domain.Dtos.Event
     {
         [Required(ErrorMessage = "O campo {0} é obrigtório.")]
         public Guid Id { get; set; }
-
-        [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+        [Display(Name = "Local do Evento"),
+         Required(ErrorMessage = "O campo {0} é obrigtório.")]
         public string Local { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+        [Display(Name = "Data do Evento"),
+         Required(ErrorMessage = "O campo {0} é obrigtório.")]
         public DateTime EventDate { get; set; }
         private DateTime _eventDate
         {
@@ -29,11 +30,13 @@ namespace Api.Domain.Dtos.Event
             }
         }
 
-        [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+        [Display(Name = "Tema"),
+         Required(ErrorMessage = "O campo {0} é obrigtório.")]
         [Range(3, 50, ErrorMessage = "Quantidade mínima de caracteres {1} quantidade máxima de caracteres {2}")]
         public string Thema { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+        [Display(Name = "Quantidade de pessoas"),
+         Required(ErrorMessage = "O campo {0} é obrigtório.")]
         [Range(1, 120000, ErrorMessage = "{0} não pode ser menor que 1 e maior que 120.000")]
         public int PeopleAmount { get; set; }
 
@@ -41,9 +44,10 @@ namespace Api.Domain.Dtos.Event
                            ErrorMessage = "Não é uma imagem válida. (gif, jpg, jpeg, bmp ou png)")]
         public string ImagePath { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [Display(Name = "Telefone"),
+            Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Phone(ErrorMessage = "O campo {0} está com número inválido")]
-        public string Telefone { get; set; }
+        public string Phone { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "e-mail")]

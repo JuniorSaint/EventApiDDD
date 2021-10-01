@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using Api.Domain.Dtos.User;
-using Api.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using Api.Domain.Interfaces.Services;
+using Api.Domain.Dtos.User;
 
 namespace Api.Application.Controllers
 {
@@ -55,11 +55,11 @@ namespace Api.Application.Controllers
 
         //  [Authorize("Bearer")]
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserCreateDto category)
+        public async Task<ActionResult> Post([FromBody] UserCreateDto user)
         {
             try
             {
-                var result = await _service.Post(category);
+                var result = await _service.Post(user);
                 if (result != null)
                 {
                     return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);

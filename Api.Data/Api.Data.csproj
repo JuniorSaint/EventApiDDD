@@ -10,6 +10,9 @@
     <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Contex\" />
+    <None Remove="Mapping\" />
+    <None Remove="Implementations\" />
+    <None Remove="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
@@ -25,6 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contex\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Implementations\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>

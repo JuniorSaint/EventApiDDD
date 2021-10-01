@@ -19,6 +19,9 @@
     <None Remove="Dtos\Speaker\" />
     <None Remove="Dtos\SocialMedia\" />
     <None Remove="Dtos\Login\" />
+    <None Remove="Entities\" />
+    <None Remove="Interfaces\Repositories\" />
+    <None Remove="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -31,6 +34,9 @@
     <Folder Include="Dtos\Speaker\" />
     <Folder Include="Dtos\SocialMedia\" />
     <Folder Include="Dtos\Login\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
