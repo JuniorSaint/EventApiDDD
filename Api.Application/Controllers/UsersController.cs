@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Interfaces.Services;
 using Api.Domain.Dtos.User;
+using Microsoft.AspNetCore.Cors;
 
 namespace Api.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class UsersController : ControllerBase
     {
         private IUserService _service { get; set; }

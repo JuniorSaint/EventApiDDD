@@ -17,7 +17,7 @@ namespace Api.Domain.Entities
         public string Password { get; set; }
 
         [Required]
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
 
         [Required]
         public string UserType { get; set; }

@@ -18,21 +18,10 @@ namespace Api.Domain.Dtos.Event
         [Display(Name = "Data do Evento"),
          Required(ErrorMessage = "O campo {0} é obrigtório.")]
         public DateTime EventDate { get; set; }
-        private DateTime _eventDate
-        {
-            get { return _eventDate; }
-            set
-            {
-                if (value > DateTime.UtcNow)
-                {
-                    _eventDate = value;
-                }
-            }
-        }
+
 
         [Display(Name = "Tema"),
          Required(ErrorMessage = "O campo {0} é obrigtório.")]
-        [Range(3, 50, ErrorMessage = "Quantidade mínima de caracteres {1} quantidade máxima de caracteres {2}")]
         public string Thema { get; set; }
 
         [Display(Name = "Quantidade de pessoas"),

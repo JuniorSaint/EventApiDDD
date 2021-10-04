@@ -24,7 +24,7 @@ namespace Api.Data.Implementations
         {
             try
             {
-                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password) && u.IsActive.Equals(true));
+                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password) && u.IsActive.Equals("yes"));
             }
             catch (ArgumentException)
             {

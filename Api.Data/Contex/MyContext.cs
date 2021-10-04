@@ -29,7 +29,7 @@ namespace Api.Data.Contex
                     UserName = "Junior",
                     Email = "junior.saint@gmail.com",
                     Password = "123456",
-                    IsActive = true,
+                    IsActive = "yes",
                     UserType = "administrator",
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,

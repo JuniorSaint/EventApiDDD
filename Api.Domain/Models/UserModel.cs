@@ -17,8 +17,8 @@ namespace Api.Domain.Models
             set { _email = value; }
         }
 
-        private bool _isActive;
-        public bool IsActive
+        private string _isActive;
+        public string IsActive
         {
             get { return _isActive; }
             set { _isActive = value; }

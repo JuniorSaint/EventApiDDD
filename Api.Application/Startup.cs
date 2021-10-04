@@ -29,10 +29,10 @@ namespace Api.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             // configuração do CORS
             services.AddCors(options => options.AddDefaultPolicy(builder =>
-                builder
-                .AllowAnyOrigin()
+                builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
             ));
@@ -142,10 +142,11 @@ namespace Api.Application
 
             app.UseRouting();
 
-            // A configuração da Cors tem que ficar depois de: app.UseHttpsRedirection e app.UseRouting e antes de app.UseEndpoints
-            app.UseCors();
 
             app.UseAuthorization();
+
+            // A configuração da Cors tem que ficar depois de: app.UseHttpsRedirection e app.UseRouting e antes de app.UseEndpoints
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {

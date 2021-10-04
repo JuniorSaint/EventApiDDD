@@ -12,6 +12,7 @@
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Microsoft.AspNetCore.Cors" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -23,6 +24,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api.Domain\Api.Domain.csproj" />

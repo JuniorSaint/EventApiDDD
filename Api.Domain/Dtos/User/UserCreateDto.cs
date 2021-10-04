@@ -23,7 +23,7 @@ namespace Api.Domain.Dtos.User
 
         [Display(Name = "usuário ativo"),
          Required(ErrorMessage = "O campo {0} é campo obrigatório")]
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
 
         [Display(Name = "Tipo de usuário"),
          Required(ErrorMessage = "O campo {0} é campo obrigatório")]

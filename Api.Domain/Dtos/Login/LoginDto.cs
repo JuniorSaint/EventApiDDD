@@ -11,7 +11,7 @@ namespace Api.Domain.Dtos.Login
         [StringLength(100, ErrorMessage = "Email deve ter no máximo {1} caracteres.")]
         public string Email { get; set; }
 
-        [Display(Name = "Senha"),
+        [Display(Name = "senha"),
          Required(ErrorMessage = "O campo {0} é obrigatório para Login")]
         public string Password { get; set; }
     }
