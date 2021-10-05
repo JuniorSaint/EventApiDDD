@@ -12,6 +12,8 @@ namespace Api.Domain.Dtos.Speaker
 
         public string MiniResume { get; set; }
         public string ImagePath { get; set; }
+
+        [Phone]
         public string SpeakerPhone { get; set; }
 
         [Display(Name = "e-mail"),

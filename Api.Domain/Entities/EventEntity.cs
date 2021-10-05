@@ -13,7 +13,7 @@ namespace Api.Domain.Entities
         public DateTime EventDate { get; set; }
 
         [Required]
-        public string Thema { get; set; }
+        public string Theme { get; set; }
 
         [Required]
         public int PeopleAmount { get; set; }

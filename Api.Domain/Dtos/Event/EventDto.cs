@@ -15,7 +15,7 @@ namespace Api.Domain.Dtos.Event
 
         public DateTime EventDate { get; set; }
 
-        public string Thema { get; set; }
+        public string Theme { get; set; }
 
         public int PeopleAmount { get; set; }
 
@@ -25,9 +25,9 @@ namespace Api.Domain.Dtos.Event
 
         public string Email { get; set; }
 
-        public IEnumerable<LotDto> Lots { get; set; }
-        public IEnumerable<SocialMediaDto> socialMedias { get; set; }
-        public IEnumerable<SpeakerDto> Speakers { get; set; }
+        //public IEnumerable<LotDto> Lots { get; set; }
+        //public IEnumerable<SocialMediaDto> socialMedias { get; set; }
+        //public IEnumerable<SpeakerDto> Speakers { get; set; }
 
         public DateTime? CreatedAt { get; }
 

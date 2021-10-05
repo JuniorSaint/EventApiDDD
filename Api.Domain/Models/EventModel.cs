@@ -20,11 +20,11 @@ namespace Api.Domain.Models
             set { _eventDate = value; }
         }
 
-        public string Thema { get; set; }
-        private string _thema
+        public string Theme { get; set; }
+        private string _theme
         {
-            get { return _thema; }
-            set { _thema = value; }
+            get { return _theme; }
+            set { _theme = value; }
         }
 
         public int PeopleAmount { get; set; }
