@@ -10,9 +10,9 @@ namespace Api.Data.Mapping
         public void Configure(EntityTypeBuilder<LotEntity> builder)
         {
             builder.ToTable("Lots");
-            builder.HasKey(e => e.Id);
-            builder.HasIndex(e => e.LotName);
-            builder.HasOne(e => e.Event);
+            builder.HasKey(l => l.Id);
+            builder.HasIndex(l => l.LotName);
+            builder.HasOne(l => l.Event).WithMany(e => e.Lots);
         }
     }
 }

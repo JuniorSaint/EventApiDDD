@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Cors;
 
 namespace Api.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route(template: "api/v1/[controller]")]
     [ApiController]
-    [EnableCors]
+
     public class UsersController : ControllerBase
     {
         private IUserService _service { get; set; }
@@ -35,8 +35,8 @@ namespace Api.Application.Controllers
 
         // [Authorize("Bearer")]
         [HttpGet]
-        [Route("{id:guid}", Name = "GetWithId")]
-        public async Task<ActionResult> Get(Guid id)
+        [Route(template: "{id:guid}", Name = "GetWithId")]
+        public async Task<ActionResult> Get([FromRoute] Guid id)
         {
             try
             {
@@ -98,8 +98,8 @@ namespace Api.Application.Controllers
         }
 
         //   [Authorize("Bearer")]
-        [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> Delete(Guid id)
+        [HttpDelete(template: "{id:guid}")]
+        public async Task<ActionResult> Delete([FromRoute] Guid id)
         {
             try
             {

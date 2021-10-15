@@ -53,6 +53,26 @@ namespace Api.Service.Services
             var result = await _repository.InsertAsync(entity);
             return _mapper.Map<EventDto>(result);
         }
+
+        public async Task<EventDto> GetAllByTheme(string theme)
+        {
+            var entity = await _repository.GetAllEventByThemeAsync(theme);
+            return _mapper.Map<EventDto>(entity);
+        }
+
+        public async Task<EventDto> GetEventById(Guid eventId)
+        {
+            var entity = await _repository.GetEventByIdAsync(eventId);
+            return _mapper.Map<EventDto>(entity);
+        }
+
+        public async Task<EventDto> PostUpload(EventUpdateDto evento, Guid id)
+        {
+            var model = _mapper.Map<EventModel>(evento);
+            var entity = _mapper.Map<EventEntity>(model);
+            var result = await _repository.UpdateAsync(entity);
+            return _mapper.Map<EventDto>(result);
+        }
     }
 }
 

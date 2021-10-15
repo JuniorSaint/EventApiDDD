@@ -20,6 +20,13 @@ namespace Api.Domain.Models
             set { _eventDate = value; }
         }
 
+        public TimeSpan EventTime { get; set; }
+        private TimeSpan _eventTime
+        {
+            get { return _eventTime; }
+            set { _eventTime = value; }
+        }
+
         public string Theme { get; set; }
         private string _theme
         {
@@ -34,11 +41,11 @@ namespace Api.Domain.Models
             set { _peopleAmount = value; }
         }
 
-        public string ImagePath { get; set; }
-        private string _imagePath
+        public string EventImage { get; set; }
+        private string _eventImage
         {
-            get { return _imagePath; }
-            set { _imagePath = value; }
+            get { return _eventImage; }
+            set { _eventImage = value; }
         }
 
         public string Phone { get; set; }

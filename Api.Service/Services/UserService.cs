@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Api.Domain.Dtos.User;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Repositories;
@@ -40,6 +41,9 @@ namespace Api.Service.Services
 
         public async Task<UserDto> Post(UserCreateDto user)
         {
+            var passwordHasher = new PasswordHasher<UserCreateDto>();
+            user.Password = passwordHasher.HashPassword(user, user.Password);
+
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);
             var result = await _repository.InsertAsync(entity);
@@ -49,11 +53,16 @@ namespace Api.Service.Services
 
         public async Task<UserUpdateResultDto> Put(UserUpdateDto user)
         {
+
+            var passwordHasher = new PasswordHasher<UserUpdateDto>();
+            user.Password = passwordHasher.HashPassword(user, user.Password);
+
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);
 
             var result = await _repository.UpdateAsync(entity);
             return _mapper.Map<UserUpdateResultDto>(result);
         }
+
     }
 }

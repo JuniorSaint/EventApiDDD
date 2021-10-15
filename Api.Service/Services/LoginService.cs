@@ -4,10 +4,12 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Login;
+using Api.Domain.Dtos.User;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Repositories;
 using Api.Domain.Interfaces.Services;
 using Api.Domain.Security;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -32,17 +34,20 @@ namespace Api.Service.Services
             _configuration = configuration;
         }
 
-        public async Task<object> FindByLogin(LoginDto user)
+        public async Task<object> FindByLoginAsync(LoginDto user)
         {
+
             if (user != null && !string.IsNullOrWhiteSpace(user.Email) && !string.IsNullOrWhiteSpace(user.Password))
             {
-                var baseUser = await _repository.FindByLogin(user.Email, user.Password);
+
+                var baseUser = await _repository.FindByLoginAsync(user);
                 if (baseUser == null)
                 {
                     return new
                     {
                         authenticated = false,
-                        message = $"email: {user.Email} ou senha ou usuário inativo"
+                        message = $"email: {user.Email} e/ou senha esta errado ou usuário inativo"
+
                     };
                 }
                 else
@@ -100,5 +105,7 @@ namespace Api.Service.Services
                 message = "Usuário Logado com sucesso"
             };
         }
+
+
     }
 }

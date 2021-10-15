@@ -11,8 +11,10 @@ namespace Api.Domain.Interfaces.Services
         Task<LotDto> Put(LotUpdateDto lote);
         Task<bool> Delete(Guid id);
         Task<LotDto> Get(Guid id);
+        Task<IEnumerable<LotDto>> GetAll();
         Task<IEnumerable<LotDto>> GetLotByEvent(Guid idEvent);
         Task<LotDto> GetLotByEventLot(Guid eventId, Guid loteId);
+        Task<IEnumerable<LotDto>> GetAllComplete();
     }
 }
 

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route(template: "api/v1/[controller]")]
     [ApiController]
     public class SpeakersController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace Api.Application.Controllers
         // [Authorize("Bearer")]
         [HttpGet]
         [Route("{id:guid}", Name = "GetSpeakerWithId")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get([FromRoute] Guid id)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Api.Application.Controllers
 
         //   [Authorize("Bearer")]
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete([FromRoute] Guid id)
         {
             try
             {

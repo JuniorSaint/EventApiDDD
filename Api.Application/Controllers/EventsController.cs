@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route(template: "api/v1/[controller]")]
     [ApiController]
     public class EventsController : ControllerBase
     {
 
-        private IEventService _service { get; set; }
-        public EventsController(IEventService service)
+        private IEventService _service;
+        private IUpLoadService _serviceUpload;
+        public EventsController(IEventService service, IUpLoadService serviceUpload)
         {
             _service = service;
+            _serviceUpload = serviceUpload;
         }
 
         // [Authorize("Bearer")]
@@ -34,23 +36,62 @@ namespace Api.Application.Controllers
         }
 
         // [Authorize("Bearer")]
-        [HttpGet]
-        [Route("{id:guid}", Name = "GetEventWithId")]
-        public async Task<ActionResult> Get(Guid id)
+        [HttpGet("theme/{theme}")]
+        public async Task<ActionResult> GetAllByTherm([FromRoute] string theme)
         {
             try
             {
-                var result = await _service.Get(id);
+                return Ok(await _service.GetAllByTheme(theme));
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        // [Authorize("Bearer")]
+        [HttpGet]
+        [Route("{id:guid}", Name = "GetEventWithId")]
+        public async Task<ActionResult> Get([FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _service.GetEventById(id);
                 if (result == null)
                 {
                     return NotFound($"Pesquisa não obteve êxito com Id: {id}");
                 }
-                return Ok(await _service.Get(id));
+                return Ok(await _service.GetEventById(id));
 
             }
             catch (ArgumentException e)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        //  [Authorize("Bearer")]
+        [HttpPost("upload-image/{id:guid}")]
+        public async Task<ActionResult> PostUpload([FromBody] EventUpdateDto events, [FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _service.GetEventById(id);
+                if (result != null)
+                {
+                    var file = Request.Form.Files[0];
+                    if (file.Length > 0)
+                    {
+                        _serviceUpload.DeleteImage(events.EventImage);
+                    }
+                }
+                var EventReturn = await _service.Put(events);
+
+                return Ok(EventReturn);
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)System.Net.HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -98,7 +139,7 @@ namespace Api.Application.Controllers
 
         //   [Authorize("Bearer")]
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete([FromRoute] Guid id)
         {
             try
             {

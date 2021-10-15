@@ -28,7 +28,7 @@ namespace Api.Domain.Dtos.Lot
 
         [Display(Name = "Id do evento"),
          Required(ErrorMessage = "O campo {0} é obrigtório.")]
-        public Guid EventiId { get; set; }
+        public Guid EventId { get; set; }
         public EventDto EventDto { get; set; }
     }
 }

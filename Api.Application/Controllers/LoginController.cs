@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route(template: "api/v1/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace Api.Application.Controllers
         {
             try
             {
-                var result = await _service.FindByLogin(loginDto);
+                var result = await _service.FindByLoginAsync(loginDto);
                 if (result != null)
                 {
                     return Ok(result);

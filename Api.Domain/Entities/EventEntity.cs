@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Api.Domain.Entities
@@ -12,6 +13,11 @@ namespace Api.Domain.Entities
         [Required]
         public DateTime EventDate { get; set; }
 
+
+        [DefaultValue("00:00")]
+        [Required]
+        public TimeSpan EventTime { get; set; }
+
         [Required]
         public string Theme { get; set; }
 
@@ -19,7 +25,7 @@ namespace Api.Domain.Entities
         public int PeopleAmount { get; set; }
 
         [Required]
-        public string ImagePath { get; set; }
+        public string EventImage { get; set; }
 
         public string Phone { get; set; }
 

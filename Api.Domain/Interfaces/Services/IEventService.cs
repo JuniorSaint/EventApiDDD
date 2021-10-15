@@ -12,5 +12,10 @@ namespace Api.Domain.Interfaces.Services
         Task<bool> Delete(Guid id);
         Task<EventDto> Put(EventUpdateDto evento);
         Task<EventDto> Post(EventCreateDto evento);
+        Task<EventDto> PostUpload(EventUpdateDto events, Guid id);
+
+
+        Task<EventDto> GetAllByTheme(string theme);
+        Task<EventDto> GetEventById(Guid eventId);
     }
 }

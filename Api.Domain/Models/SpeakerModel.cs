@@ -17,11 +17,11 @@ namespace Api.Domain.Models
             set { _miniResume = value; }
         }
 
-        public string ImagePath { get; set; }
-        private string _imagePath
+        public string SpeakerImage { get; set; }
+        private string _speakerImage
         {
-            get { return _imagePath; }
-            set { _imagePath = value; }
+            get { return _speakerImage; }
+            set { _speakerImage = value; }
         }
 
         public string SpeakerPhone { get; set; }

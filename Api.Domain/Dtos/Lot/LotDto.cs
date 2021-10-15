@@ -19,7 +19,7 @@ namespace Api.Domain.Dtos.Lot
 
         public int Amount { get; set; }
 
-        public Guid EventiId { get; set; }
+        public Guid EventId { get; set; }
         public EventDto EventDto { get; set; }
 
         public DateTime? CreatedAt { get; }

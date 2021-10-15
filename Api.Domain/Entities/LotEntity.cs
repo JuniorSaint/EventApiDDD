@@ -20,7 +20,7 @@ namespace Api.Domain.Entities
         [Required]
         public int Amount { get; set; }
 
-        public Guid EventiId { get; set; }
+        public Guid EventId { get; set; }
         public EventEntity Event { get; set; }
     }
 }

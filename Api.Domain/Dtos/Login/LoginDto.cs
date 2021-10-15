@@ -14,6 +14,9 @@ namespace Api.Domain.Dtos.Login
         [Display(Name = "senha"),
          Required(ErrorMessage = "O campo {0} é obrigatório para Login")]
         public string Password { get; set; }
+
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }
 

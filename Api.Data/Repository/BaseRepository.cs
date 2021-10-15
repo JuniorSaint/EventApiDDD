@@ -23,7 +23,7 @@ namespace Api.Data.Repository
         {
             try
             {
-                var result = await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
+                var result = await _dataset.AsNoTracking().SingleOrDefaultAsync(p => p.Id.Equals(id));
                 if (result == null) return false;
 
                 _dataset.Remove(result);
@@ -66,7 +66,7 @@ namespace Api.Data.Repository
         {
             try
             {
-                return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
+                return await _dataset.AsNoTracking().SingleOrDefaultAsync(p => p.Id.Equals(id));
             }
             catch (ArgumentException)
             {
@@ -78,7 +78,7 @@ namespace Api.Data.Repository
         {
             try
             {
-                return await _dataset.ToListAsync();
+                return await _dataset.AsNoTracking().ToListAsync();
             }
             catch (ArgumentException)
             {

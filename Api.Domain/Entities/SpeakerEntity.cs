@@ -10,7 +10,7 @@ namespace Api.Domain.Entities
         [Required]
         public string SpeakerName { get; set; }
         public string MiniResume { get; set; }
-        public string ImagePath { get; set; }
+        public string SpeakerImage { get; set; }
         public string SpeakerPhone { get; set; }
         public string SpeakerEmail { get; set; }
         public IEnumerable<SocialMediaEntity> SocialMedias { get; set; }

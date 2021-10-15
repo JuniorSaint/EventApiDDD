@@ -8,7 +8,7 @@ namespace Api.Domain.Dtos.User
         public string Email { get; set; }
         public string IsActive { get; set; }
         public string UserType { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

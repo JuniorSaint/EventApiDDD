@@ -13,7 +13,8 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddTransient<ISpeakerService, SpeakerService>();
             serviceCollection.AddTransient<IEventService, EventService>();
             serviceCollection.AddTransient<ILoginService, LoginService>();
-
+            serviceCollection.AddTransient<ILotService, LotService>();
+            serviceCollection.AddTransient<IUpLoadService, UpLoadService>();
         }
     }
 }

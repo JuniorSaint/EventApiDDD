@@ -39,7 +39,7 @@ namespace Api.Domain.Models
             set { _amount = value; }
         }
 
-        public Guid EventiId { get; set; }
+        public Guid EventId { get; set; }
         private Guid _eventId
         {
             get { return _eventId; }
