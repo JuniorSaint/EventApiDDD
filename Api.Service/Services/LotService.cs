@@ -52,12 +52,12 @@ namespace Api.Service.Services
             return _mapper.Map<LotDto>(result);
         }
 
-        public async Task<LotDto> Put(LotUpdateDto lote)
+        public async Task<IEnumerable<LotDto>> Put(Guid idEvent, LotUpdateDto[] lotes)
         {
-            var model = _mapper.Map<LotModel>(lote);
+            var model = _mapper.Map<LotModel>(lotes);
             var entity = _mapper.Map<LotEntity>(model);
-            var result = await _repository.UpdateAsync(entity);
-            return _mapper.Map<LotDto>(result);
+            var result = await _repository.UpdateLotAsync(idEvent, entity);
+            return _mapper.Map<IEnumerable<LotDto>>(result);
         }
 
         public async Task<IEnumerable<LotDto>> GetAll()

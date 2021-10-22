@@ -9,6 +9,7 @@ namespace Api.Domain.Interfaces.Repositories
     {
         Task<IEnumerable<LotEntity>> GetAllLotCompleteAsync();
         Task<IEnumerable<LotEntity>> GetLotByEventAsync(Guid idEvent);
+        Task<IEnumerable<LotEntity>> UpdateLotAsync(Guid idEvent, LotEntity[] items);
     }
 }
 

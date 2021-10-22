@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Interfaces.Services;
 using Api.Domain.Dtos.Lot;
+using Microsoft.Extensions.Logging;
 
 namespace Api.Application.Controllers
 {
@@ -35,32 +36,32 @@ namespace Api.Application.Controllers
 
 
         //  [Authorize("Bearer")]
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] LotCreateDto lot)
-        {
-            try
-            {
-                var result = await _service.Post(lot);
-                if (result != null)
-                {
-                    return Created(new Uri(Url.Link("GetLotById", new { id = result.Id })), result);
-                }
+        //[HttpPost]
+        //public async Task<ActionResult> Post([FromBody] LotCreateDto lot)
+        //{
+        //    try
+        //    {
+        //        var result = await _service.Post(lot);
+        //        if (result != null)
+        //        {
+        //            return Created(new Uri(Url.Link("GetLotById", new { id = result.Id })), result);
+        //        }
 
-                return BadRequest();
-            }
-            catch (ArgumentException ex)
-            {
-                return StatusCode((int)System.Net.HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
+        //        return BadRequest();
+        //    }
+        //    catch (ArgumentException ex)
+        //    {
+        //        return StatusCode((int)System.Net.HttpStatusCode.InternalServerError, ex.Message);
+        //    }
+        //}
 
         //   [Authorize("Bearer")]
-        [HttpPut]
-        public async Task<ActionResult> Put([FromBody] LotUpdateDto lot)
+        [HttpPut("{eventId}")]
+        public async Task<ActionResult> Put([FromRoute] Guid eventId, [FromBody] LotUpdateDto[] lots)
         {
             try
             {
-                var result = await _service.Put(lot);
+                var result = await _service.Put(eventId, lots);
                 if (result != null)
                 {
                     return Ok(result);

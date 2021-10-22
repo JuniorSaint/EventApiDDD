@@ -43,6 +43,23 @@ namespace Api.Data.Implementations
                 throw;
             }
         }
+
+        public async Task<IEnumerable<LotEntity>> UpdateLotAsync(Guid idEvent, LotEntity[] items)
+        {
+            try
+            {
+                var result = await _dataset.SingleOrDefaultAsync(p => p.EventId.Equals(idEvent));
+                if (result == null) return null;
+
+                _context.Entry(result).CurrentValues.SetValues(items);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return items;
+        }
     }
 }
 
