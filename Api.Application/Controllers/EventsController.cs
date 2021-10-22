@@ -1,6 +1,7 @@
 ﻿
 using Api.Domain.Dtos.Event;
 using Api.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -22,6 +23,7 @@ namespace Api.Application.Controllers
         }
 
         // [Authorize("Bearer")]
+        //[Authorize(Roles = "administrator")]
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {

@@ -17,7 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+
 
 namespace Api.Application
 {
@@ -114,11 +114,6 @@ namespace Api.Application
 
             #endregion
 
-            // configuração do Swagger
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProEventos.API", Version = "v1" });
-            });
 
             // configuração do upload de arquivos
             services.Configure<FormOptions>(o =>
@@ -162,6 +157,9 @@ namespace Api.Application
             });
 
             app.UseRouting();
+
+            // Always before UseAuthorization
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
