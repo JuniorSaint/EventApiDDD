@@ -13,6 +13,7 @@ namespace Api.Domain.Interfaces.Services
         Task<bool> Delete(Guid id);
         Task<SpeakerDto> Get(Guid id);
         Task<IEnumerable<SpeakerDto>> GetAll();
+        Task<IEnumerable<SpeakerDto>> GetAllPage(int skip, int take);
     }
 }
 

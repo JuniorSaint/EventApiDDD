@@ -33,6 +33,20 @@ namespace Api.Application.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{int:skip}/{int:take}")]
+        public async Task<ActionResult> GetAllPage([FromRoute] int skip, [FromRoute] int take)
+        {
+            try
+            {
+                return Ok(await _service.GetAllPage(skip, take));
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
         // [Authorize("Bearer")]
         [HttpGet]
         [Route(template: "{id:guid}", Name = "GetWithId")]

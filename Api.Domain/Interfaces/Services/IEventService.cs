@@ -13,7 +13,7 @@ namespace Api.Domain.Interfaces.Services
         Task<EventDto> Put(EventUpdateDto evento);
         Task<EventDto> Post(EventCreateDto evento);
         Task<EventDto> PostUpload(EventUpdateDto events, Guid id);
-
+        Task<IEnumerable<EventDto>> GetAllPage(int skip, int take);
 
         Task<EventDto> GetAllByTheme(string theme);
         Task<EventDto> GetEventById(Guid eventId);

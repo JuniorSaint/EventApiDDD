@@ -12,7 +12,7 @@ namespace Api.Domain.Interfaces.Services
         Task<bool> Delete(Guid id);
         Task<IEnumerable<LotDto>> GetAll();
         Task<IEnumerable<LotDto>> GetLotByEvent(Guid idEvent);
-        Task<LotDto> GetLotByEventLot(Guid eventId, Guid loteId);
+        Task<IEnumerable<LotDto>> GetLotByEventLot(Guid eventId, Guid loteId);
         Task<IEnumerable<LotDto>> GetAllComplete();
     }
 }

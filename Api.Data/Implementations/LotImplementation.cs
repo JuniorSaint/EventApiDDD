@@ -32,6 +32,18 @@ namespace Api.Data.Implementations
             }
         }
 
+        public async Task<LotEntity> GetLotByEventAndLotAsync(Guid idEvent, Guid id)
+        {
+            try
+            {
+                return await _dataset.SingleOrDefaultAsync(x => x.EventId == idEvent && x.Id == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<IEnumerable<LotEntity>> GetLotByEventAsync(Guid idEvent)
         {
             try
@@ -49,7 +61,7 @@ namespace Api.Data.Implementations
             try
             {
                 var result = await _dataset.SingleOrDefaultAsync(p => p.EventId.Equals(idEvent));
-                if (result == null) return null;
+                if (result is null) return null;
 
                 _context.Entry(result).CurrentValues.SetValues(items);
                 await _context.SaveChangesAsync();

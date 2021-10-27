@@ -22,9 +22,9 @@ namespace Api.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(Guid eventId, Guid id)
         {
-            return await _repository.DeleteAsync(id);
+            return await _repository.DeleteAsync(eventId, id);
         }
 
         public async Task<LotDto> Get(Guid id)

@@ -78,12 +78,12 @@ namespace Api.Application.Controllers
         }
 
         //   [Authorize("Bearer")]
-        [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> Delete([FromRoute] Guid id)
+        [HttpDelete("{eventId:guid}/{id:guid}")]
+        public async Task<ActionResult> Delete([FromRoute] Guid eventId, [FromRoute] Guid id)
         {
             try
             {
-                var result = await _service.Get(id);
+                var result = await _service.GetLotByEventLot(eventId, id);
                 if (result == null)
                 {
                     return NotFound($"Deleção não obteve êxito com Id: {id}");

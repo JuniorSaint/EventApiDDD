@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Api.Data.Contex;
 using Api.Domain.Entities;
@@ -104,6 +105,23 @@ namespace Api.Data.Repository
                 throw;
             }
             return item;
+        }
+
+        Task<bool> IRepository<T>.DeleteAsync(Guid eventId, Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<T>> SelectAllPageAsync(int skip, int take)
+        {
+            try
+            {
+                return await _dataset.AsNoTracking().Skip(skip).Take(take).ToListAsync();
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
         }
     }
 }

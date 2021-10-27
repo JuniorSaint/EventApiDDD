@@ -53,6 +53,12 @@ namespace Api.Service.Services
             var result = await _repository.UpdateAsync(entity);
             return _mapper.Map<SpeakerDto>(result);
         }
+
+        public async Task<IEnumerable<SpeakerDto>> GetAllPage(int skip, int take)
+        {
+            var listPage = await _repository.SelectAllPageAsync(skip, take);
+            return _mapper.Map<IEnumerable<SpeakerDto>>(listPage);
+        }
     }
 }
 

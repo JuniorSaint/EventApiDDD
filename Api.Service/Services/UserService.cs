@@ -64,5 +64,10 @@ namespace Api.Service.Services
             return _mapper.Map<UserUpdateResultDto>(result);
         }
 
+        async Task<IEnumerable<UserDto>> IUserService.GetAllPage(int skip, int take)
+        {
+            var listPage = await _repository.SelectAllPageAsync(skip, take);
+            return _mapper.Map<IEnumerable<UserDto>>(listPage);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Event;
 using Api.Domain.Entities;
@@ -72,6 +73,12 @@ namespace Api.Service.Services
             var entity = _mapper.Map<EventEntity>(model);
             var result = await _repository.UpdateAsync(entity);
             return _mapper.Map<EventDto>(result);
+        }
+
+        public async Task<IEnumerable<EventDto>> GetAllPage(int skip, int take)
+        {
+            var listPage = await _repository.SelectAllPageAsync(skip, take);
+            return _mapper.Map<IEnumerable<EventDto>>(listPage);
         }
     }
 }
