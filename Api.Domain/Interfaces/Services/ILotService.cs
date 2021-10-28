@@ -10,6 +10,7 @@ namespace Api.Domain.Interfaces.Services
         Task<LotDto> Post(LotCreateDto lote);
         Task<LotDto> Put(Guid idEvent, LotUpdateDto[] lote);
         Task<bool> Delete(Guid id);
+        Task<bool> Delete(Guid idEvent, Guid id);
         Task<IEnumerable<LotDto>> GetAll();
         Task<IEnumerable<LotDto>> GetLotByEvent(Guid idEvent);
         Task<IEnumerable<LotDto>> GetLotByEventLot(Guid eventId, Guid loteId);

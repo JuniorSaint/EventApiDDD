@@ -107,11 +107,6 @@ namespace Api.Data.Repository
             return item;
         }
 
-        Task<bool> IRepository<T>.DeleteAsync(Guid eventId, Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<T>> SelectAllPageAsync(int skip, int take)
         {
             try

@@ -24,7 +24,7 @@ namespace Api.Service.Services
 
         public async Task<bool> Delete(Guid eventId, Guid id)
         {
-            return await _repository.DeleteAsync(eventId, id);
+            return await _repository.Delete(eventId, id);
         }
 
         public async Task<LotDto> Get(Guid id)

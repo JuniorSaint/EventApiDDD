@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 namespace Api.Domain.Models
 {
     public class SocialMediaModel
@@ -34,4 +35,3 @@ namespace Api.Domain.Models
 
     }
 }
-
